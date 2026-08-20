@@ -22,8 +22,10 @@ BATCH_SIZE = 1000
 def load_graph_kuzu(db_path: str) -> dict:
     import shutil
 
-    if os.path.exists(db_path):
+    if os.path.isdir(db_path):
         shutil.rmtree(db_path)
+    elif os.path.exists(db_path):
+        os.remove(db_path)
 
     db = kuzu.Database(db_path)
     conn = kuzu.Connection(db)

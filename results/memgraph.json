@@ -1,0 +1,92 @@
+{
+  "platform": "Memgraph",
+  "loading": {
+    "platform": "Memgraph",
+    "nodes_loaded": 36692,
+    "edges_loaded": 367662,
+    "load_time_s": 4.6,
+    "nodes_per_sec": 7979.3,
+    "edges_per_sec": 79954.0
+  },
+  "traversal_1hop": {
+    "p50_ms": 0.331,
+    "p95_ms": 0.425,
+    "mean_ms": 0.344,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_2hop": {
+    "p50_ms": 0.677,
+    "p95_ms": 1.335,
+    "mean_ms": 0.749,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_3hop": {
+    "p50_ms": 17.735,
+    "p95_ms": 91.02,
+    "mean_ms": 31.992,
+    "iterations": 100,
+    "error": null
+  },
+  "lookup_point": {
+    "p50_ms": 0.312,
+    "p95_ms": 0.423,
+    "mean_ms": 0.328,
+    "iterations": 100,
+    "error": null
+  },
+  "lookup_indexed": {
+    "p50_ms": 0.31,
+    "p95_ms": 0.407,
+    "mean_ms": 0.323,
+    "iterations": 100,
+    "error": null
+  },
+  "aggregation_count": {
+    "p50_ms": 49.753,
+    "p95_ms": 75.97,
+    "mean_ms": 49.828,
+    "iterations": 100,
+    "error": null
+  },
+  "aggregation_groupby": {
+    "p50_ms": null,
+    "p95_ms": null,
+    "mean_ms": null,
+    "iterations": 0,
+    "error": "{neo4j_code: Memgraph.TransientError.MemgraphError.MemgraphError} {message: Memory limit exceeded! Attempting to allocate a chunk of 1.00MiB which would put the current use to 256.88MiB, while the maximum allowed size for allocation is set to 256.00MiB.} {gql_status: 50N42} {gql_status_description: error: general processing exception - unexpected error. Memory limit exceeded! Attempting to allocate a chunk of 1.00MiB which would put the current use to 256.88MiB, while the maximum allowed size for allocation is set to 256.00MiB.}"
+  },
+  "mixed_workload_10": {
+    "concurrency": 10,
+    "duration_s": 60,
+    "total_queries": 158273,
+    "qps": 2637.88
+  },
+  "mixed_workload_40": {
+    "concurrency": 40,
+    "duration_s": 60,
+    "total_queries": 147124,
+    "qps": 2452.07
+  },
+  "footprint": {
+    "memgraph_storage_info": {
+      "name": "memgraph",
+      "vertex_count": 36692,
+      "edge_count": 367662,
+      "average_degree": 20.040444783604055,
+      "vm_max_map_count": 1048576,
+      "memory_res": "176.55MiB",
+      "peak_memory_res": "210.21MiB",
+      "unreleased_delta_objects": 0,
+      "disk_usage": "24.38MiB",
+      "memory_tracked": "118.73MiB",
+      "allocation_limit": "256.00MiB",
+      "global_isolation_level": "SNAPSHOT_ISOLATION",
+      "session_isolation_level": "",
+      "next_session_isolation_level": "",
+      "storage_mode": "IN_MEMORY_TRANSACTIONAL"
+    },
+    "source": "SHOW STORAGE INFO"
+  }
+}

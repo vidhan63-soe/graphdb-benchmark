@@ -21,9 +21,15 @@ from loaders.common import load_start_nodes
 
 
 def _session_run(driver, query, params=None):
-    with driver.session() as s:
-        record = s.run(query, **(params or {})).single()
-        return record
+    # Managed free-tier instances (observed on CognoDB Cloud) intermittently
+    # reap pooled Bolt connections; retry once on a stale connection rather
+    # than fail the whole benchmark on a transient drop.
+    try:
+        with driver.session() as s:
+            return s.run(query, **(params or {})).single()
+    except Exception:
+        with driver.session() as s:
+            return s.run(query, **(params or {})).single()
 
 
 def _get_footprint(driver) -> dict:

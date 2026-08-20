@@ -85,18 +85,6 @@ def run_falkordb_benchmark(host: str, port: int, loading_result: dict) -> dict:
     )
     results["aggregation_count"] = bench.to_dict()
 
-    bench = run_query_bench(
-        fn=lambda: _query(
-            g,
-            "MATCH (n:Email)-[:SENT]->() "
-            "WITH n.id AS sender, count(*) AS out_deg "
-            "RETURN sender, out_deg ORDER BY out_deg DESC LIMIT 10",
-        ),
-        name="aggregation_groupby",
-        platform="FalkorDB",
-    )
-    results["aggregation_groupby"] = bench.to_dict()
-
     print("[FalkorDB] Running mixed workload benchmarks …")
 
     # FalkorDB uses Redis single-threaded model; writes are serialised — document as caveat.
@@ -116,6 +104,21 @@ def run_falkordb_benchmark(host: str, port: int, loading_result: dict) -> dict:
             write_fn,
             concurrency=concurrency,
         )
+
+    # Run last: this query's memory footprint has been observed to OOM-kill the
+    # FalkorDB container under the 256 MB cap, which would otherwise take down
+    # every benchmark that runs after it.
+    bench = run_query_bench(
+        fn=lambda: _query(
+            g,
+            "MATCH (n:Email)-[:SENT]->() "
+            "WITH n.id AS sender, count(*) AS out_deg "
+            "RETURN sender, out_deg ORDER BY out_deg DESC LIMIT 10",
+        ),
+        name="aggregation_groupby",
+        platform="FalkorDB",
+    )
+    results["aggregation_groupby"] = bench.to_dict()
 
     # FalkorDB footprint: use GRAPH.INFO via raw query
     try:

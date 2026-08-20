@@ -87,12 +87,17 @@ def run_kuzu_benchmark(db_path: str, loading_result: dict) -> dict:
     )
     results["aggregation_count"] = bench.to_dict()
 
-    bench = run_query_bench(
-        fn=lambda: conn.execute(
+    def _groupby():
+        result = conn.execute(
             "MATCH (n:Email)-[:SENT]->() "
             "WITH n.id AS sender, count(*) AS out_deg "
             "RETURN sender, out_deg ORDER BY out_deg DESC LIMIT 10"
-        ).get_as_pl(),
+        )
+        while result.has_next():
+            result.get_next()
+
+    bench = run_query_bench(
+        fn=_groupby,
         name="aggregation_groupby",
         platform="Kuzu",
     )
@@ -120,16 +125,21 @@ def run_kuzu_benchmark(db_path: str, loading_result: dict) -> dict:
         mw["note"] = "Kuzu uses single-writer MVCC; write throughput is serialised"
         results[f"mixed_workload_{concurrency}"] = mw
 
-    # Footprint: directory size on disk
+    # Footprint: on-disk size (single file in newer Kuzu versions, directory in older ones)
     try:
-        total = sum(
-            os.path.getsize(os.path.join(dp, f))
-            for dp, _, files in os.walk(db_path)
-            for f in files
-        )
+        if os.path.isdir(db_path):
+            total = sum(
+                os.path.getsize(os.path.join(dp, f))
+                for dp, _, files in os.walk(db_path)
+                for f in files
+            )
+            source = "directory size on disk"
+        else:
+            total = os.path.getsize(db_path)
+            source = "file size on disk"
         results["footprint"] = {
             "stored_size_mb": round(total / 1024**2, 2),
-            "source": "directory size on disk",
+            "source": source,
         }
     except Exception as exc:
         results["footprint"] = {"error": str(exc)}

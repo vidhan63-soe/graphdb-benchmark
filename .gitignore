@@ -5,6 +5,7 @@ data/nodes.csv
 data/edges.csv
 data/edges_raw.csv
 data/start_nodes.txt
+kuzu_benchmark_db
 kuzu_benchmark_db/
 __pycache__/
 *.pyc

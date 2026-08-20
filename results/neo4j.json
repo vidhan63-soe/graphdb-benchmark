@@ -1,0 +1,76 @@
+{
+  "platform": "Neo4j",
+  "loading": {
+    "platform": "Neo4j",
+    "nodes_loaded": 36692,
+    "edges_loaded": 367662,
+    "load_time_s": 91.96,
+    "nodes_per_sec": 399.0,
+    "edges_per_sec": 3998.2
+  },
+  "traversal_1hop": {
+    "p50_ms": 87.654,
+    "p95_ms": 169.052,
+    "mean_ms": 102.257,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_2hop": {
+    "p50_ms": 89.966,
+    "p95_ms": 147.458,
+    "mean_ms": 100.963,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_3hop": {
+    "p50_ms": 92.846,
+    "p95_ms": 127.19,
+    "mean_ms": 100.833,
+    "iterations": 100,
+    "error": null
+  },
+  "lookup_point": {
+    "p50_ms": 76.52,
+    "p95_ms": 94.329,
+    "mean_ms": 84.877,
+    "iterations": 100,
+    "error": null
+  },
+  "lookup_indexed": {
+    "p50_ms": 75.125,
+    "p95_ms": 90.156,
+    "mean_ms": 78.308,
+    "iterations": 100,
+    "error": null
+  },
+  "aggregation_count": {
+    "p50_ms": 74.269,
+    "p95_ms": 80.913,
+    "mean_ms": 75.338,
+    "iterations": 100,
+    "error": null
+  },
+  "aggregation_groupby": {
+    "p50_ms": 142.964,
+    "p95_ms": 176.044,
+    "mean_ms": 157.581,
+    "iterations": 100,
+    "error": null
+  },
+  "mixed_workload_10": {
+    "concurrency": 10,
+    "duration_s": 60,
+    "total_queries": 5894,
+    "qps": 98.23
+  },
+  "mixed_workload_40": {
+    "concurrency": 40,
+    "duration_s": 60,
+    "total_queries": 25653,
+    "qps": 427.55
+  },
+  "footprint": {
+    "stored_size": "not_observable",
+    "note": "Free tier does not expose storage metrics"
+  }
+}

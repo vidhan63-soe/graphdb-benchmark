@@ -1,0 +1,79 @@
+{
+  "platform": "Kuzu",
+  "loading": {
+    "platform": "Kuzu",
+    "nodes_loaded": 36692,
+    "edges_loaded": 367662,
+    "load_time_s": 0.18,
+    "nodes_per_sec": 200770.9,
+    "edges_per_sec": 2011769.1
+  },
+  "traversal_1hop": {
+    "p50_ms": 0.671,
+    "p95_ms": 0.73,
+    "mean_ms": 0.694,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_2hop": {
+    "p50_ms": 4.553,
+    "p95_ms": 6.204,
+    "mean_ms": 4.661,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_3hop": {
+    "p50_ms": 84.235,
+    "p95_ms": 413.076,
+    "mean_ms": 116.065,
+    "iterations": 100,
+    "error": null
+  },
+  "lookup_point": {
+    "p50_ms": 0.322,
+    "p95_ms": 0.425,
+    "mean_ms": 0.339,
+    "iterations": 100,
+    "error": null
+  },
+  "lookup_indexed": {
+    "p50_ms": 0.316,
+    "p95_ms": 0.328,
+    "mean_ms": 0.316,
+    "iterations": 100,
+    "error": null,
+    "note": "Kuzu PKs are always indexed; same as point lookup"
+  },
+  "aggregation_count": {
+    "p50_ms": 2.56,
+    "p95_ms": 2.926,
+    "mean_ms": 2.614,
+    "iterations": 100,
+    "error": null
+  },
+  "aggregation_groupby": {
+    "p50_ms": 11.484,
+    "p95_ms": 12.749,
+    "mean_ms": 11.517,
+    "iterations": 100,
+    "error": null
+  },
+  "mixed_workload_10": {
+    "concurrency": 10,
+    "duration_s": 60,
+    "total_queries": 72444,
+    "qps": 1207.4,
+    "note": "Kuzu uses single-writer MVCC; write throughput is serialised"
+  },
+  "mixed_workload_40": {
+    "concurrency": 40,
+    "duration_s": 60,
+    "total_queries": 72575,
+    "qps": 1209.58,
+    "note": "Kuzu uses single-writer MVCC; write throughput is serialised"
+  },
+  "footprint": {
+    "stored_size_mb": 9.19,
+    "source": "file size on disk"
+  }
+}

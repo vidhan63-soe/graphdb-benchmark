@@ -1,0 +1,76 @@
+{
+  "platform": "FalkorDB",
+  "loading": {
+    "platform": "FalkorDB",
+    "nodes_loaded": 36692,
+    "edges_loaded": 367662,
+    "load_time_s": 27.49,
+    "nodes_per_sec": 1334.5,
+    "edges_per_sec": 13372.4
+  },
+  "traversal_1hop": {
+    "p50_ms": 0.194,
+    "p95_ms": 0.249,
+    "mean_ms": 0.213,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_2hop": {
+    "p50_ms": 0.507,
+    "p95_ms": 1.325,
+    "mean_ms": 1.061,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_3hop": {
+    "p50_ms": 24.334,
+    "p95_ms": 122.454,
+    "mean_ms": 45.133,
+    "iterations": 100,
+    "error": null
+  },
+  "lookup_point": {
+    "p50_ms": 0.167,
+    "p95_ms": 0.182,
+    "mean_ms": 0.171,
+    "iterations": 100,
+    "error": null
+  },
+  "lookup_indexed": {
+    "p50_ms": 0.166,
+    "p95_ms": 0.177,
+    "mean_ms": 0.167,
+    "iterations": 100,
+    "error": null
+  },
+  "aggregation_count": {
+    "p50_ms": 101.948,
+    "p95_ms": 107.892,
+    "mean_ms": 104.337,
+    "iterations": 100,
+    "error": null
+  },
+  "mixed_workload_10": {
+    "concurrency": 10,
+    "duration_s": 60,
+    "total_queries": 181696,
+    "qps": 3028.27
+  },
+  "mixed_workload_40": {
+    "concurrency": 40,
+    "duration_s": 60,
+    "total_queries": 170531,
+    "qps": 2842.18
+  },
+  "aggregation_groupby": {
+    "p50_ms": 208.164,
+    "p95_ms": 245.766,
+    "mean_ms": 215.438,
+    "iterations": 6,
+    "error": "Query timed out"
+  },
+  "footprint": {
+    "stored_size": "not_observable",
+    "note": "CALL db.info() not available on this FalkorDB version"
+  }
+}
