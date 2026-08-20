@@ -1,0 +1,16 @@
+.env
+data/*.gz
+data/*.txt
+data/nodes.csv
+data/edges.csv
+data/edges_raw.csv
+data/start_nodes.txt
+kuzu_benchmark_db/
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+venv/
+.claude/
+CLAUDE.md
+daa87c0b-d14d-45d5-b9dd-803b602e18a5.pdf

@@ -1,0 +1,30 @@
+version: "3.8"
+
+# Self-hosted databases capped to free-tier equivalent resources:
+# 0.5 vCPU, 256 MB RAM, 1 GB disk — matching CognoDB & Neo4j AuraDB free tiers.
+
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    container_name: benchmark_falkordb
+    ports:
+      - "16379:6379"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+
+  memgraph:
+    image: memgraph/memgraph:2.18.1
+    container_name: benchmark_memgraph
+    ports:
+      - "7688:7687"
+    command:
+      - "--memory-limit=256"
+      - "--storage-gc-cycle-sec=300"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M

@@ -1,0 +1,76 @@
+{
+  "platform": "CognoDB",
+  "loading": {
+    "platform": "CognoDB",
+    "nodes_loaded": 36692,
+    "edges_loaded": 367662,
+    "load_time_s": 266.37,
+    "nodes_per_sec": 137.8,
+    "edges_per_sec": 1380.3
+  },
+  "traversal_1hop": {
+    "p50_ms": 306.34,
+    "p95_ms": 410.963,
+    "mean_ms": 316.899,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_2hop": {
+    "p50_ms": 307.395,
+    "p95_ms": 410.026,
+    "mean_ms": 317.392,
+    "iterations": 100,
+    "error": null
+  },
+  "traversal_3hop": {
+    "p50_ms": 2049.755,
+    "p95_ms": 9517.265,
+    "mean_ms": 3225.386,
+    "iterations": 6,
+    "error": "Failed to read from defunct connection IPv4Address(('db-dbced2cb.bravo.databases.cognodb.com', 7687)) (ResolvedIPv4Address(('136.70.132.96', 7687)))"
+  },
+  "lookup_point": {
+    "p50_ms": 303.555,
+    "p95_ms": 371.061,
+    "mean_ms": 309.114,
+    "iterations": 100,
+    "error": null
+  },
+  "lookup_indexed": {
+    "p50_ms": 306.717,
+    "p95_ms": 412.071,
+    "mean_ms": 324.436,
+    "iterations": 100,
+    "error": null
+  },
+  "aggregation_count": {
+    "p50_ms": 307.117,
+    "p95_ms": 359.906,
+    "mean_ms": 310.143,
+    "iterations": 100,
+    "error": null
+  },
+  "aggregation_groupby": {
+    "p50_ms": 1126.028,
+    "p95_ms": 1345.618,
+    "mean_ms": 1147.891,
+    "iterations": 100,
+    "error": null
+  },
+  "mixed_workload_10": {
+    "concurrency": 10,
+    "duration_s": 60,
+    "total_queries": 1933,
+    "qps": 32.22
+  },
+  "mixed_workload_40": {
+    "concurrency": 40,
+    "duration_s": 60,
+    "total_queries": 7916,
+    "qps": 131.93
+  },
+  "footprint": {
+    "stored_size": "not_observable",
+    "note": "Free tier does not expose storage metrics"
+  }
+}
